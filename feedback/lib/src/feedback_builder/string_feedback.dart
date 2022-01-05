@@ -64,18 +64,22 @@ class _StringFeedbackState extends State<StringFeedback> {
                 padding: EdgeInsets.fromLTRB(
                     16, widget.scrollController != null ? 20 : 16, 16, 0),
                 children: <Widget>[
-                  Text(
-                    FeedbackLocalizations.of(context).feedbackDescriptionText,
+                  const Text(
+                    "Your feedback",
                     maxLines: 2,
-                    style:
-                        FeedbackTheme.of(context).bottomSheetDescriptionStyle,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  TextField(
+                  const SizedBox(height: 10.0),
+                  TextFormField(
                     key: const Key('text_input_field'),
                     maxLines: 2,
                     minLines: 2,
                     controller: controller,
                     textInputAction: TextInputAction.done,
+                    decoration: const InputDecoration(
+                        hintText:
+                            "Have feedback? We'd love to here it, but please don't share sensitive information.",
+                        border: OutlineInputBorder()),
                     onChanged: (_) {
                       //print(_);
                     },
